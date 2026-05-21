@@ -21,6 +21,6 @@ RUN pip install --no-cache-dir -r masquerade-nodes-comfyui/requirements.txt || t
 RUN pip install --no-cache-dir -r rgthree-comfy/requirements.txt || true
 RUN pip install --no-cache-dir -r ComfyUI-SeedVR2_VideoUpscaler/requirements.txt || true
 
-COPY extra_model_paths.yaml /comfyui/extra_model_paths.yaml
+RUN rm -rf /comfyui/models && ln -s /runpod-volume/models /comfyui/models
 
 WORKDIR /
